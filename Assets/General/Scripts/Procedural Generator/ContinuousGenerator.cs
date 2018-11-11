@@ -29,20 +29,29 @@ namespace Game
             proceduralGenerator = GetComponent<ProceduralGenerator>();
 
             indexPosition = transform.position;
-
-            for (int i = 0; i < 100; i++)
-                Create();
         }
 
         public float offset;
         int index = 0;
+        public int Index { get { return index; } }
+
         Vector2 indexPosition;
-        public void Create()
+        public Vector2 IndexPosition { get { return indexPosition; } }
+
+        public GameObject Create()
         {
             var instance = proceduralGenerator.Create(indexPosition);
 
             index++;
             indexPosition += Vector2.right * offset;
+
+            return instance;
+        }
+
+        public void ResetIndex()
+        {
+            index = 0;
+            indexPosition = transform.position;
         }
     }
 }

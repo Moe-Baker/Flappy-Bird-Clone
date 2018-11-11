@@ -82,8 +82,6 @@ namespace Game
 
         void OnCollisionEnter2D(Collision2D collision)
         {
-            Debug.Log("hit " + collision.transform.name);
-
             if(isAlive)
                 Die();
         }

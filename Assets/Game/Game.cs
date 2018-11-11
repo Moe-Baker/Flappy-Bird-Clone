@@ -33,6 +33,8 @@ namespace Game
 
         public AudioSource AudioSource { get; private set; }
 
+        public FollowGenerator obstaclesGenerator;
+
         void Awake()
         {
             Instance = this;
@@ -59,6 +61,8 @@ namespace Game
                 Bird.Revive();
 
             Bird.gameObject.SetActive(true);
+
+            obstaclesGenerator.Clear();
         }
 
         void OnBirdDeath()
@@ -72,7 +76,7 @@ namespace Game
 
             Menu.end.SetActive(true);
         }
-
+        
         public void Reset()
         {
             Menu.start.SetActive(true);

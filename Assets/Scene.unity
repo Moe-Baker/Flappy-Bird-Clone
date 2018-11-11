@@ -421,6 +421,7 @@ GameObject:
   - component: {fileID: 390973213}
   - component: {fileID: 390973212}
   - component: {fileID: 390973211}
+  - component: {fileID: 390973214}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -465,6 +466,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &390973214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 390973210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d94ec599dd95cd4ba149212577f773a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1409698964}
+  offset: 20
 --- !u!1 &441734257
 GameObject:
   m_ObjectHideFlags: 0
@@ -1494,7 +1508,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -1592,6 +1606,7 @@ GameObject:
   - component: {fileID: 1480493973}
   - component: {fileID: 1480493974}
   - component: {fileID: 1480493975}
+  - component: {fileID: 1480493976}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -1636,6 +1651,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: 11.5
+--- !u!114 &1480493976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1480493972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d94ec599dd95cd4ba149212577f773a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1409698964}
+  offset: 20
 --- !u!1 &1510404043
 GameObject:
   m_ObjectHideFlags: 0
@@ -1981,6 +2009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 555e0252f0854d24e8c1db328d4cd493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  obstaclesGenerator: {fileID: 1990689909}
 --- !u!82 &1771721763
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2335,6 +2364,7 @@ GameObject:
   - component: {fileID: 1990689906}
   - component: {fileID: 1990689908}
   - component: {fileID: 1990689907}
+  - component: {fileID: 1990689909}
   m_Layer: 0
   m_Name: Obstacles
   m_TagString: Untagged
@@ -2379,6 +2409,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 1132618491359828, guid: 8539fa35daf494c47a89bf4159a69604, type: 2}
+--- !u!114 &1990689909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1990689905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d94ec599dd95cd4ba149212577f773a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1409698964}
+  offset: 20
 --- !u!1 &2033809058
 GameObject:
   m_ObjectHideFlags: 0
