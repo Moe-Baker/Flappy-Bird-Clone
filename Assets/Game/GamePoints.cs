@@ -32,5 +32,10 @@ namespace Game
 
             Game.Instance.AudioSource.PlayOneShot(gainSound);
         }
-	}
+
+        public void Clear()
+        {
+            value = 0;
+        }
+    }
 }

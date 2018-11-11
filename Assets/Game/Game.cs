@@ -63,13 +63,13 @@ namespace Game
 
         void OnBirdDeath()
         {
-            Menu.HUD.SetActive(false);
-
-            Invoke("ShowEndMenu", 2f);
+            Invoke("OnEnd", 2f);
         }
 
-        void ShowEndMenu()
+        void OnEnd()
         {
+            Menu.HUD.SetActive(false);
+
             Menu.end.SetActive(true);
         }
 
@@ -78,6 +78,8 @@ namespace Game
             Menu.start.SetActive(true);
             Menu.HUD.SetActive(false);
             Menu.end.SetActive(false);
+
+            Points.Clear();
         }
     }
 }
