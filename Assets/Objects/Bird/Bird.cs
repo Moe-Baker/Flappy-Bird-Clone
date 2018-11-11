@@ -28,7 +28,7 @@ namespace Game
         bool isAlive = true;
         public bool IsAlive { get { return isAlive; } }
 
-        void Start()
+        void Awake()
         {
             rigidbody = GetComponent<Rigidbody2D>();
 
@@ -88,6 +88,7 @@ namespace Game
                 Die();
         }
 
+        public AudioClip hitSound;
         public AudioClip deathSound;
         public event Action OnDeath;
         void Die()
@@ -97,11 +98,24 @@ namespace Game
             isAlive = false;
 
             animator.speed = 0f;
-            audioSource.PlayOneShot(deathSound);
             rigidbody.constraints = RigidbodyConstraints2D.None;
+
+            audioSource.PlayOneShot(hitSound);
+            audioSource.PlayOneShot(deathSound);
 
             if (OnDeath != null)
                 OnDeath();
+        }
+
+        public void Revive()
+        {
+            isAlive = true;
+
+            animator.speed = 1f;
+            rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+
+            transform.eulerAngles = Vector3.zero;
+            rigidbody.velocity = Vector3.zero;
         }
 	}
 }

@@ -19,16 +19,12 @@ using Random = UnityEngine.Random;
 
 namespace Game
 {
-	public class PointTrigger : MonoBehaviour
+	public class Menu : MonoBehaviour
 	{
-        public int reward = 1;
+        public GameObject start;
 
-        void OnTriggerEnter2D(Collider2D collider)
-        {
-            if(collider.gameObject == Game.Instance.Bird.gameObject && Game.Instance.Bird.IsAlive)
-            {
-                Game.Instance.Points.Add(reward);
-            }
-        }
-	}
+        public GameObject HUD;
+
+        public GameObject end;
+    }
 }

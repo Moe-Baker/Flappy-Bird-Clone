@@ -21,14 +21,14 @@ namespace Game
 {
 	public class FollowCamera : MonoBehaviour
 	{
-        public Bird bird;
+        public Bird Bird { get { return Game.Instance.Bird; } }
 
         void Update()
         {
-            if(bird.IsAlive)
+            if(Bird.IsAlive)
             {
                 var position = transform.position;
-                position.x = bird.transform.position.x;
+                position.x = Bird.transform.position.x;
                 transform.position = position;
             }
         }

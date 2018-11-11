@@ -25,9 +25,11 @@ namespace Game
 	{
         public static Game Instance { get; private set; }
 
+        public GamePoints Points { get; private set; }
+
         public Bird Bird { get; private set; }
 
-        public GamePoints Points { get; private set; }
+        public Menu Menu { get; private set; }
 
         public AudioSource AudioSource { get; private set; }
 
@@ -35,11 +37,47 @@ namespace Game
         {
             Instance = this;
 
-            Bird = FindObjectOfType<Bird>();
-
             Points = FindObjectOfType<GamePoints>();
+
+            Bird = FindObjectOfType<Bird>();
+            Bird.OnDeath += OnBirdDeath;
+            Bird.gameObject.SetActive(false);
+
+            Menu = FindObjectOfType<Menu>();
 
             AudioSource = GetComponent<AudioSource>();
         }
-	}
+
+        public void Begin()
+        {
+            Menu.start.SetActive(false);
+            Menu.HUD.SetActive(true);
+
+            Bird.transform.position = Vector3.zero;
+
+            if(!Bird.IsAlive)
+                Bird.Revive();
+
+            Bird.gameObject.SetActive(true);
+        }
+
+        void OnBirdDeath()
+        {
+            Menu.HUD.SetActive(false);
+
+            Invoke("ShowEndMenu", 2f);
+        }
+
+        void ShowEndMenu()
+        {
+            Menu.end.SetActive(true);
+        }
+
+        public void Reset()
+        {
+            Menu.start.SetActive(true);
+            Menu.HUD.SetActive(false);
+            Menu.end.SetActive(false);
+        }
+    }
 }

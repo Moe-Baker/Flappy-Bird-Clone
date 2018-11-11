@@ -19,16 +19,21 @@ using Random = UnityEngine.Random;
 
 namespace Game
 {
-	public class PointTrigger : MonoBehaviour
+    [RequireComponent(typeof(Text))]
+	public class PointsLabel : MonoBehaviour
 	{
-        public int reward = 1;
+        Text label;
 
-        void OnTriggerEnter2D(Collider2D collider)
+        public string prefix;
+
+        void Start()
         {
-            if(collider.gameObject == Game.Instance.Bird.gameObject && Game.Instance.Bird.IsAlive)
-            {
-                Game.Instance.Points.Add(reward);
-            }
+            label = GetComponent<Text>();
+        }
+
+        void Update()
+        {
+            label.text = prefix + Game.Instance.Points.Value.ToString();
         }
 	}
 }
