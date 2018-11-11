@@ -208,7 +208,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 1}
-    oldSize: {x: 1.7333333, y: 10.666667}
+    oldSize: {x: 2.3636363, y: 14.545455}
     newSize: {x: 0.52, y: 3.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -258,7 +258,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 1}
-    oldSize: {x: 1.7333333, y: 10.666667}
+    oldSize: {x: 2.3636363, y: 14.545455}
     newSize: {x: 0.52, y: 3.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -280,8 +280,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minSize: 4
   maxSize: 4
-  minOffset: -3.5
-  maxOffset: 5.3
+  minOffset: -4
+  maxOffset: 7
 --- !u!114 &114413508973004788
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -62,6 +62,11 @@ namespace Game
             }
 
             rigidbody.velocity = velocity;
+
+            if (rigidbody.velocity.y > 0)
+                animator.speed = 1f;
+            else
+                animator.speed = 0f;
         }
         bool CheckInput()
         {
