@@ -23,11 +23,13 @@ namespace Game
 	{
         public int reward = 1;
 
+        public AudioClip SFX;
         void OnTriggerEnter2D(Collider2D collider)
         {
             if(collider.gameObject == Game.Instance.Bird.gameObject && Game.Instance.Bird.IsAlive)
             {
-                Game.Instance.Points.Add(reward);
+                Game.Instance.points += reward;
+                Game.Instance.AudioSource.PlayOneShot(SFX);
             }
         }
 	}

@@ -70,7 +70,7 @@ namespace Game
         }
         bool CheckInput()
         {
-            return Input.GetMouseButtonDown(0);
+            return Input.anyKeyDown;
         }
 
         public float rotationScale = 4f;

@@ -204,7 +204,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -5.3333335}
+  m_Offset: {x: 0, y: -7.2727275}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 1}
@@ -215,7 +215,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.7333333, y: 10.666667}
+  m_Size: {x: 2.3636363, y: 14.545455}
   m_EdgeRadius: 0
 --- !u!61 &61624493605885506
 BoxCollider2D:
@@ -254,7 +254,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -5.3333335}
+  m_Offset: {x: 0, y: -7.2727275}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 1}
@@ -265,7 +265,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.7333333, y: 10.666667}
+  m_Size: {x: 2.3636363, y: 14.545455}
   m_EdgeRadius: 0
 --- !u!114 &114015409441016206
 MonoBehaviour:
@@ -294,6 +294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 1
+  SFX: {fileID: 8300000, guid: 5d1f032877236d64a9d48b6dfa418e17, type: 3}
 --- !u!114 &114681109216377806
 MonoBehaviour:
   m_ObjectHideFlags: 1

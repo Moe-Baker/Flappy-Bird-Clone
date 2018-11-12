@@ -19,23 +19,21 @@ using Random = UnityEngine.Random;
 
 namespace Game
 {
-	public class GamePoints : MonoBehaviour
+    [RequireComponent(typeof(Text))]
+	public class PointsLabel : MonoBehaviour
 	{
-        [SerializeField]
-        int value;
-        public int Value { get { return value; } }
+        Text label;
 
-        public AudioClip gainSound;
-        public void Add(int increase)
+        public string prefix;
+
+        void Start()
         {
-            value += increase;
-
-            Game.Instance.AudioSource.PlayOneShot(gainSound);
+            label = GetComponent<Text>();
         }
 
-        public void Clear()
+        void Update()
         {
-            value = 0;
+            label.text = prefix + Game.Instance.points;
         }
-    }
+	}
 }

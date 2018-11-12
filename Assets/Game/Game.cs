@@ -25,7 +25,7 @@ namespace Game
 	{
         public static Game Instance { get; private set; }
 
-        public GamePoints Points { get; private set; }
+        public int points = 0;
 
         public Bird Bird { get; private set; }
 
@@ -38,8 +38,6 @@ namespace Game
         void Awake()
         {
             Instance = this;
-
-            Points = FindObjectOfType<GamePoints>();
 
             Bird = FindObjectOfType<Bird>();
             Bird.OnDeath += OnBirdDeath;
@@ -83,7 +81,7 @@ namespace Game
             Menu.HUD.SetActive(false);
             Menu.end.SetActive(false);
 
-            Points.Clear();
+            points = 0;
         }
     }
 }
