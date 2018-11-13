@@ -21,10 +21,12 @@ namespace FlappyBirdClone
 {
 	public class PointTrigger : MonoBehaviour
 	{
+        //Ammount of points to add
         public int reward = 1;
 
         public AudioClip SFX;
 
+        //Audio source is responsible for audio
         AudioSource audioSource;
 
         void Awake()
@@ -32,8 +34,14 @@ namespace FlappyBirdClone
             audioSource = GetComponent<AudioSource>();
         }
 
+        /// <summary>
+        /// Unity callback called when ever a 2D trigger is entered by another collider
+        /// The collider parameter provides information about the collider that entered this trigger
+        /// </summary>
+        /// <param name="collider"></param>
         void OnTriggerEnter2D(Collider2D collider)
         {
+            //Check if the bird entered this trigger and check if the bird is still alive
             if(collider.gameObject == Game.Instance.Bird.gameObject && Game.Instance.Bird.IsAlive)
             {
                 Game.Instance.points += reward;

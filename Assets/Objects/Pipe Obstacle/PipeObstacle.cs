@@ -19,17 +19,26 @@ using Random = UnityEngine.Random;
 
 namespace FlappyBirdClone
 {
+    ///Allows Unity's callbacks to be called while in edit mode (when the game isn't being played)
+    ///Normally those callbacks would've been called only when the game starts (after hitting the play button)
     [ExecuteInEditMode]
 	public class PipeObstacle : MonoBehaviour
 	{
+        //top part of the obstacle
         public Transform top;
+
+        //bottom part of the obstacle
         public Transform bottom;
 
         [SerializeField]
+        //represents the size of the gap of the obstacle
         float size;
         public void SetSize(float value)
         {
             size = value;
+
+            ///Check if the parts are assigned
+            ///And modify their local position (position relative to their parent)
 
             if (top != null)
                 top.localPosition = Vector3.up * value / 2;
@@ -45,7 +54,7 @@ namespace FlappyBirdClone
 
         void Update()
         {
-            if (Application.isEditor)
+            if (Application.isEditor) //Continously apply the size when in the editor
                 SetSize(size);
         }
     }
