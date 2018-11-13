@@ -726,7 +726,7 @@ MonoBehaviour:
   moveVelocity: 6
   flapVelcoity: 9
   flapSound: {fileID: 8300000, guid: 047a4fce8ebb6e34d8152c5fd4adb0dd, type: 3}
-  rotationScale: 4
+  rotationMultiplier: 4
   hitSound: {fileID: 8300000, guid: 7034673477f0c6941b6b8cd09bfc2fa9, type: 3}
   deathSound: {fileID: 8300000, guid: f7b77e0685e287c42b0aaf847a6bfe14, type: 3}
 --- !u!58 &645412065

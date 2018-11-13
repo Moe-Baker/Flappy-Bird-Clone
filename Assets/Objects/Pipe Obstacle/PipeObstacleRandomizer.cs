@@ -19,7 +19,7 @@ using Random = UnityEngine.Random;
 
 namespace FlappyBirdClone
 {
-    //Attribute used to designate that another component of a certian type is required for this component to work
+    ///Attribute used to designate that another component of a certian type is required for this component to work
     ///That designated component will be auto added when this component is added to a gameobject
     [RequireComponent(typeof(PipeObstacle))]
     //Randomizes the obstacles size and offset (Y position)
