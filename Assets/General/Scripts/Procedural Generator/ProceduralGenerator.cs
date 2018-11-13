@@ -23,6 +23,17 @@ namespace Game
 	{
         public GameObject prefab;
 
+        public float space;
+
+        List<GameObject> instances = new List<GameObject>();
+
+        public int length = 100;
+
+        void Awake()
+        {
+            Reset();
+        }
+
         public GameObject Create(Vector3 position)
         {
             var instance = Instantiate(prefab, position, Quaternion.identity);
@@ -31,5 +42,16 @@ namespace Game
 
             return instance;
         }
-	}
+
+        public void Reset()
+        {
+            for (int i = 0; i < instances.Count; i++)
+                Destroy(instances[i]);
+
+            instances.Clear();
+
+            for (int i = 0; i < length; i++)
+                instances.Add(Create(transform.position + Vector3.right * i * space));
+        }
+    }
 }

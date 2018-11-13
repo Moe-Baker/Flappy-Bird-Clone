@@ -44,9 +44,9 @@ namespace Game
             ProcessRotation();
         }
 
-        public float jumpVelocity = 4f;
-        public AudioClip jumpSound;
         public float moveVelocity = 4f;
+        public float flapVelcoity = 9f;
+        public AudioClip flapSound;
         void ProcessMovement()
         {
             if (!isAlive) return;
@@ -57,8 +57,8 @@ namespace Game
 
             if (CheckInput())
             {
-                velocity.y = jumpVelocity;
-                audioSource.PlayOneShot(jumpSound);
+                velocity.y = flapVelcoity;
+                audioSource.PlayOneShot(flapSound);
             }
 
             rigidbody.velocity = velocity;
@@ -73,7 +73,9 @@ namespace Game
             return Input.anyKeyDown;
         }
 
+        [Space]
         public float rotationScale = 4f;
+        public const float AngleLimit = 60f;
         void ProcessRotation()
         {
             if (!isAlive) return;
@@ -81,6 +83,7 @@ namespace Game
             var angles = transform.eulerAngles;
 
             angles.z = rigidbody.velocity.y * rotationScale;
+            angles.z = Mathf.Clamp(angles.z, -AngleLimit, AngleLimit);
 
             transform.eulerAngles = angles;
         }
@@ -91,6 +94,7 @@ namespace Game
                 Die();
         }
 
+        [Space]
         public AudioClip hitSound;
         public AudioClip deathSound;
         public event Action OnDeath;

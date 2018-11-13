@@ -24,12 +24,20 @@ namespace Game
         public int reward = 1;
 
         public AudioClip SFX;
+
+        AudioSource audioSource;
+
+        void Awake()
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
+
         void OnTriggerEnter2D(Collider2D collider)
         {
             if(collider.gameObject == Game.Instance.Bird.gameObject && Game.Instance.Bird.IsAlive)
             {
                 Game.Instance.points += reward;
-                Game.Instance.AudioSource.PlayOneShot(SFX);
+                audioSource.PlayOneShot(SFX);
             }
         }
 	}

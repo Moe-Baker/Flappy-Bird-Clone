@@ -20,7 +20,6 @@ using Random = UnityEngine.Random;
 namespace Game
 {
     [DefaultExecutionOrder(-1)]
-    [RequireComponent(typeof(AudioSource))]
 	public class Game : MonoBehaviour
 	{
         public static Game Instance { get; private set; }
@@ -31,9 +30,7 @@ namespace Game
 
         public Menu Menu { get; private set; }
 
-        public AudioSource AudioSource { get; private set; }
-
-        public FollowGenerator obstaclesGenerator;
+        public ProceduralGenerator obstaclesGenerator;
 
         void Awake()
         {
@@ -44,8 +41,6 @@ namespace Game
             Bird.gameObject.SetActive(false);
 
             Menu = FindObjectOfType<Menu>();
-
-            AudioSource = GetComponent<AudioSource>();
         }
 
         public void Begin()
@@ -60,7 +55,7 @@ namespace Game
 
             Bird.gameObject.SetActive(true);
 
-            obstaclesGenerator.Clear();
+            obstaclesGenerator.Reset();
         }
 
         void OnBirdDeath()

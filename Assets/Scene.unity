@@ -420,8 +420,6 @@ GameObject:
   m_Component:
   - component: {fileID: 390973213}
   - component: {fileID: 390973212}
-  - component: {fileID: 390973211}
-  - component: {fileID: 390973214}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -429,18 +427,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &390973211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 390973210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83b8bf58fcbd90b45b8cf18af91ecb2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offset: 13.4
 --- !u!114 &390973212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,6 +439,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 1736056584433906, guid: 2a24cea71b8dadc4e851265da3266e22, type: 2}
+  space: 13.4
+  length: 100
 --- !u!4 &390973213
 Transform:
   m_ObjectHideFlags: 0
@@ -466,19 +454,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &390973214
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 390973210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d94ec599dd95cd4ba149212577f773a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 1409698964}
-  offset: 30
 --- !u!1 &441734257
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,9 +723,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cddc6601b70e77244a4a85247e0299a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpVelocity: 9
-  jumpSound: {fileID: 8300000, guid: 047a4fce8ebb6e34d8152c5fd4adb0dd, type: 3}
   moveVelocity: 6
+  flapVelcoity: 9
+  flapSound: {fileID: 8300000, guid: 047a4fce8ebb6e34d8152c5fd4adb0dd, type: 3}
   rotationScale: 4
   hitSound: {fileID: 8300000, guid: 7034673477f0c6941b6b8cd09bfc2fa9, type: 3}
   deathSound: {fileID: 8300000, guid: f7b77e0685e287c42b0aaf847a6bfe14, type: 3}
@@ -1480,8 +1455,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 609.9563, y: -359.10602}
-  m_SizeDelta: {x: 0, y: 40}
+  m_AnchoredPosition: {x: 608.62744, y: -359.03754}
+  m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1480493972
 GameObject:
@@ -1492,8 +1467,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1480493973}
   - component: {fileID: 1480493974}
-  - component: {fileID: 1480493975}
-  - component: {fileID: 1480493976}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -1526,31 +1499,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 1721662680713420, guid: cdc4b41563ed5814e8d24542d329e40c, type: 2}
---- !u!114 &1480493975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1480493972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83b8bf58fcbd90b45b8cf18af91ecb2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offset: 11.5
---- !u!114 &1480493976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1480493972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d94ec599dd95cd4ba149212577f773a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 1409698964}
-  offset: 30
+  space: 14.2
+  length: 100
 --- !u!1 &1510404043
 GameObject:
   m_ObjectHideFlags: 0
@@ -1676,7 +1626,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 609.9563, y: -411.441}
+  m_AnchoredPosition: {x: 608.62744, y: -416.37253}
   m_SizeDelta: {x: 160, y: 64.67}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1555564349
@@ -1863,7 +1813,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1771721761}
   - component: {fileID: 1771721762}
-  - component: {fileID: 1771721763}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -1896,102 +1845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 0
-  obstaclesGenerator: {fileID: 1990689909}
---- !u!82 &1771721763
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1771721760}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  obstaclesGenerator: {fileID: 1990689908}
 --- !u!1 &1790673583
 GameObject:
   m_ObjectHideFlags: 0
@@ -2250,8 +2104,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1990689906}
   - component: {fileID: 1990689908}
-  - component: {fileID: 1990689907}
-  - component: {fileID: 1990689909}
   m_Layer: 0
   m_Name: Obstacles
   m_TagString: Untagged
@@ -2272,18 +2124,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1990689907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1990689905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83b8bf58fcbd90b45b8cf18af91ecb2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offset: 10
 --- !u!114 &1990689908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2296,19 +2136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 1132618491359828, guid: 8539fa35daf494c47a89bf4159a69604, type: 2}
---- !u!114 &1990689909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1990689905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d94ec599dd95cd4ba149212577f773a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 1409698964}
-  offset: 30
+  space: 10
+  length: 100
 --- !u!1 &2033809058
 GameObject:
   m_ObjectHideFlags: 0
@@ -2343,8 +2172,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 609.9563, y: -307.66498}
-  m_SizeDelta: {x: 350.56766, y: 62.88209}
+  m_AnchoredPosition: {x: 608.62744, y: -302.66498}
+  m_SizeDelta: {x: 349.80392, y: 62.7451}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2033809060
 MonoBehaviour:
