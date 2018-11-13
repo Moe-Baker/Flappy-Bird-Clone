@@ -17,7 +17,7 @@ using UnityEditorInternal;
 using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
-namespace Game
+namespace FlappyBirdClone
 {
 	public class Bird : MonoBehaviour
 	{
@@ -122,7 +122,9 @@ namespace Game
             rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
 
             transform.eulerAngles = Vector3.zero;
+
             rigidbody.velocity = Vector3.zero;
+            rigidbody.angularVelocity = 0f;
         }
 	}
 }

@@ -17,7 +17,7 @@ using UnityEditorInternal;
 using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
-namespace Game
+namespace FlappyBirdClone
 {
     [ExecuteInEditMode]
 	public class PipeObstacle : MonoBehaviour
@@ -45,7 +45,7 @@ namespace Game
 
         void Update()
         {
-            if (!Application.isPlaying)
+            if (Application.isEditor)
                 SetSize(size);
         }
     }
