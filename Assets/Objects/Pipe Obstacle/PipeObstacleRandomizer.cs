@@ -34,6 +34,11 @@ namespace FlappyBirdClone
 
         void Start()
         {
+            Randomize();
+        }
+
+        void Randomize()
+        {
             var obstacle = GetComponent<PipeObstacle>();
 
             obstacle.SetSize(UnityEngine.Random.Range(minSize, maxSize));
@@ -41,6 +46,11 @@ namespace FlappyBirdClone
             var position = obstacle.transform.localPosition;
             position.y = UnityEngine.Random.Range(minOffset, maxOffset);
             obstacle.transform.localPosition = position;
+        }
+
+        public void OnRegeneration()
+        {
+            Randomize();
         }
 	}
 }

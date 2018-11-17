@@ -33,10 +33,11 @@ namespace FlappyBirdClone
         public int points = 0;
 
         public Bird Bird { get; private set; }
+        public FollowCamera FollowCamera { get; private set; }
 
         public Menu Menu { get; private set; }
 
-        public ProceduralGenerator obstaclesGenerator;
+        public ProceduralGenerator[] generators;
 
         void Awake()
         {
@@ -49,6 +50,8 @@ namespace FlappyBirdClone
             Bird.OnDeath += OnBirdDeath;
             //Disable the bird gameobject (hide it)
             Bird.gameObject.SetActive(false);
+
+            FollowCamera = FindObjectOfType<FollowCamera>();
 
             //Find the Menu component
             Menu = FindObjectOfType<Menu>();
@@ -66,8 +69,11 @@ namespace FlappyBirdClone
 
             Bird.gameObject.SetActive(true);
 
-            //Reset the obstacles so the player doesn't go through the same obstacles over again
-            obstaclesGenerator.Reset();
+            FollowCamera.Process();
+
+            //Reset the generators so the player doesn't go through the same obstacles over again
+            foreach (var generator in generators)
+                generator.Reset();
         }
 
         void OnBirdDeath()

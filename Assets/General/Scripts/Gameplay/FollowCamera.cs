@@ -25,18 +25,21 @@ namespace FlappyBirdClone
 
         void Update()
         {
-            if(Bird.IsAlive)
-            {
-                ///Retrieve the transform's position because we can't modify its internals directly
-                ///So "transform.position.x = 20" isn't allowed because of how C# works
-                var position = transform.position;
+            if (Bird.IsAlive)
+                Process();
+        }
 
-                //Follow the Bird on the X Axis only
-                position.x = Bird.transform.position.x;
+        public void Process()
+        {
+            ///Retrieve the transform's position because we can't modify its internals directly
+            ///So "transform.position.x = 20" isn't allowed because of how C# works
+            var position = transform.position;
 
-                //Apply the position back
-                transform.position = position;
-            }
+            //Follow the Bird on the X Axis only
+            position.x = Bird.transform.position.x;
+
+            //Apply the position back
+            transform.position = position;
         }
 	}
 }

@@ -25,13 +25,46 @@ namespace FlappyBirdClone
 
         public float space;
 
-        List<GameObject> instances = new List<GameObject>();
+        public Transform followTarget;
+        public float followRange = 20f;
 
-        public int length = 100;
+        List<GameObject> instances = new List<GameObject>();
 
         void Awake()
         {
             Reset();
+        }
+
+        public void Reset()
+        {
+            foreach (var instance in instances)
+                Destroy(instance);
+
+            instances.Clear();
+
+            for (int i = 0; i < 6f; i++)
+            {
+                var instance = Create(transform.position + Vector3.right * i * space);
+
+                instances.Add(instance);
+            }
+        }
+
+        void Update()
+        {
+            for (int i = instances.Count; i-- > 0;)
+            {
+                if (instances[i].transform.position.x < followTarget.position.x - followRange)
+                {
+                    var instance = instances[i];
+
+                    instance.transform.position = instances.Last().transform.position + Vector3.right * space;
+                    instance.SendMessage("OnRegeneration", SendMessageOptions.DontRequireReceiver);
+
+                    instances.RemoveAt(i);
+                    instances.Add(instance);
+                }
+            }
         }
 
         public GameObject Create(Vector3 position)
@@ -41,17 +74,6 @@ namespace FlappyBirdClone
             instance.transform.SetParent(transform);
 
             return instance;
-        }
-
-        public void Reset()
-        {
-            for (int i = 0; i < instances.Count; i++)
-                Destroy(instances[i]);
-
-            instances.Clear();
-
-            for (int i = 0; i < length; i++)
-                instances.Add(Create(transform.position + Vector3.right * i * space));
         }
     }
 }
